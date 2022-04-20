@@ -3,7 +3,7 @@
 
 
 
-  <title>Categoria</title>
+  <title>Estoque</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -95,19 +95,56 @@
    
    
    
-     <form action="Categoria.php" method="POST">
+     <form action="Produtos.php" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
     
     
-      <label for="inputEmail4">idCategoria</label>
-      <input name="idCategoria" type="text" class="form-control" id="idCategoria" placeholder="idCategoria">
+      
+      <input name="idProduto" type="text" class="form-control" id="idProduto" placeholder="idProduto">
     </div>
-    <br><br>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Descrição</label>
-      <input name="descricao" type="text" class="form-control" id="descricao" placeholder="Senha">
+    
+      
+      <input name="fabricante" type="text" class="form-control" id="fabricante" placeholder="fabricante">
     </div>
+    
+    
+    
+      <input name="nome" type="text" class="form-control" id="nome" placeholder="nome">
+      
+      
+      <input name="marca" type="text" class="form-control" id="marca" placeholder="marca">
+      
+      <input name="modelo" type="text" class="form-control" id="modelo" placeholder="modelo">
+
+
+      <input name="idCategoria" type="text" class="form-control" id="idCategoria" placeholder="idCategoria">
+
+      <input name="descricao" type="text" class="form-control" id="descricao" placeholder="descricao">
+
+      <input name="unidadeMedida" type="text" class="form-control" id="unidadeMedida" placeholder="unidadeMedida">
+      
+      <input name="largura" type="text" class="form-control" id="largura" placeholder="largura">
+
+      <input name="altura" type="text" class="form-control" id="altura" placeholder="altura">
+
+      <input name="profundidade" type="text" class="form-control" id="profundidade" placeholder="profundidade">
+
+      <input name="peso" type="text" class="form-control" id="peso" placeholder="peso">
+
+        <input name="cor" type="text" class="form-control" id="cor" placeholder="cor">
+
+       
+
+
+
+      
+    </div>
+     
+    
+    
+    
 </div>
 <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
@@ -197,6 +234,3 @@
 
 
 </html>
-
-
-

@@ -64,7 +64,7 @@ function __construct($idPedido, $idUsuario, $dtPedido, $dtPagamento, $dtNotaFisc
 
 public function select() {
     $connection = new DBConnection();
-    $sqlCommand = "SELECT (idPedido,idUsuario,dtPedido,  dtPagamento,  dtNotaFiscal, notaFiscal,
+    $sqlCommand = "SELECT *FROM pedidos (idPedido,idUsuario,dtPedido,  dtPagamento,  dtNotaFiscal, notaFiscal,
   dtEnvio, dtRecebimento, tipoFrete, rastreioFrete,  entregaendereco,  entregaNumero,  entregaCompl,
   entregaBairro, entregaCidade, entregaUF, entregaCEP,  entregaTelefone, entregaRefer, valorTotal, qtdItems,  dtDevolucao,
  motivoDevolucao) FROM bdlojinha;";
@@ -75,13 +75,37 @@ public function select() {
 
 public function insert(){
     $connection = new DBConnection();
+    $idPedid = $this->getIdPedido();
+    $idUsuar = $this->getIdUsuario();
+    $dtPedid = $this->getDtPedido();
+    $dtPagament = $this->getDtPagamento();
+    $dtNotaFisc = $this->getDtNotaFiscal();
+    $notaFisc = $this->getNotaFiscal();
+    $dtEnv = $this->getDtEnvio();
+    $dtRecebiment = $this->getDtRecebimento();
+    $tipoFret = $this->getTipoFrete();
+    $rastreioFret = $this->getRastreioFrete();
+    $entregaenderec = $this->getEntregaendereco();
+    $entregaNumer = $this->getEntregaNumero();
+    $entregaComp = $this->getEntregaCompl();
+    $entregaBairr = $this->getEntregaBairro();
+    $entregaCidad = $this->getEntregaCidade();
+    $entregaU = $this->getEntregaUF();
+    $entregaCe = $this->getEntregaCEP();
+    $entregaTel = $this->getEntregaTelefone();
+    $entregaRef = $this->getEntregaRefer();
+    $valorTot = $this->getValorTotal();
+    $qtdItem = $this->getQtdItems(); 
+    $dtDev = $this->getDtDevolucao();
+    $mtvDevo = $this->getMotivoDevolucao();
+
     $sqlCommand = " INSERT INTO bdlojinha (idPedido,idUsuario,dtPedido,  dtPagamento,  dtNotaFiscal, notaFiscal,
   dtEnvio, dtRecebimento, tipoFrete, rastreioFrete,  entregaendereco,  entregaNumero,  entregaCompl,
   entregaBairro, entregaCidade, entregaUF, entregaCEP,  entregaTelefone, entregaRefer, valorTotal, qtdItems,  dtDevolucao,
- motivoDevolucao ) VALUES ('$idPedido','$idUsuario','$dtPedido',  '$dtPagamento',  '$dtNotaFiscal', '$notaFiscal',
-'$dtEnvio', '$dtRecebimento', '$tipoFrete', '$rastreioFrete',  '$entregaendereco',  '$entregaNumero',  '$entregaCompl',
-    '$entregaBairro', '$entregaCidade', '$entregaUF', '$entregaCEP',  '$entregaTelefone', '$entregaRefer', '$valorTotal', '$qtdItems',  '$dtDevolucao',
- '$motivoDevolucao') ";
+ motivoDevolucao ) VALUES ('$idPedid','$idUsuar','$dtPedid',  '$dtPagament',  '$dtNotaFisc', '$notaFisc',
+'$dtEnv', '$dtRecebiment', '$tipoFret', '$rastreioFret',  '$entregaenderec',  '$entregaNumer',  '$entregaComp',
+    '$entregaBairr', '$entregaCidad', '$entregaU', '$entregaCe',  '$entregaTel', '$entregaRef', '$valorTot', '$qtdItem',  '$dtDev',
+ '$mtvDevo') ";
     
     $rSet = $connection->query( $sqlCommand );
     if ( $rSet ){
@@ -92,7 +116,7 @@ public function insert(){
 
 
 }
-public function deletar(){
+/*public function deletar(){
     $connection = new DBConnection();
     
     $sqlCommand1 = "DELETE FROM `pedidos` WHERE `pedidos`. `um` = '".$this->getUm()."' ";
@@ -101,9 +125,9 @@ public function deletar(){
         return true;
     } else{
         return false;
-    }
+    }*/
     
-}
+
 
 
 

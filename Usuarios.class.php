@@ -39,59 +39,7 @@ class Usuarios
   
     }
     
-    
-    
-    public function select() {
-        $connection = new DBConnection();
-        $sqlCommand = "SELECT (idUsuario, email, senha, idNivelUsuario, nome, cpf, endereco, bairro, cidade, uf, cep, telefone, foto) FROM bdlojinha;";
-        $rSet = $connection->query( $sqlCommand );
-        
-        
-    }
-    
-    
-    public function insert(){
-        $connection = new DBConnection();
-        $sqlCommand = " INSERT INTO bdlojinha (idUsuario, email, senha, idNivelUsuario, nome, cpf, endereco, bairro, cidade, uf, cep, telefone, foto)
- VALUES ('$idUsuario', '$email', '$senha', '$idNivelUsuario', '$nome', '$cpf', '$endereco', '$bairro', '$cidade', '$uf', '$cep', '$telefone', '$foto') ";
-        
-        $rSet = $connection->query( $sqlCommand );
-        if ( $rSet ){
-            return true;
-        } else {
-            return false;
-        }
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     public function getIdUSuario(){
         return $this->idUSuario;
@@ -209,6 +157,53 @@ class Usuarios
         $this->foto = $foto;
         return $this;
     }
+
+
+
+    public function select() {
+        $connection = new DBConnection();
+        $sqlCommand = "SELECT *FROM usuarios (idUsuario, email, senha, idNivelUsuario, nome, cpf, endereco, bairro, cidade, uf, cep, telefone, foto) FROM bdlojinha;";
+        $rSet = $connection->query( $sqlCommand );
+        
+        
+    }
+    
+    
+    public function insert(){
+        $connection = new DBConnection();
+        $idUsuar = $this->getIdUSuario();
+        $emai = $this->getEmail();
+        $senh = $this->getSenha();
+    $idNivelUsuar = $this->getIdNivelUsuario();
+    $nom = $this->getNome();
+    $cpff = $this->getCpf();
+    $enderec = $this->getEndereco();
+    $bairroo = $this->getBairro();
+    $cidad = $this->getCidade();
+    $uff = $this->getUf();
+    $cp = $this->getCep();
+    $tel = $this->getTelefone();
+    $ft =$this->getFoto();
+
+        $sqlCommand = " INSERT INTO usuarios (idUsuario, email, senha, idNivelUsuario, nome, cpf, endereco, bairro, cidade, uf, cep, telefone, foto)
+ VALUES ('$idUsuar', '$emai', '$senh', '$idNivelUsuar', '$nom', '$cpff', '$enderec', '$bairroo', '$cidad', '$uff', 
+ '$cp', '$tel', '$ft') ";
+        
+        $rSet = $connection->query( $sqlCommand );
+        if ( $rSet ){
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+
+
+
+
+
+
 
 }
 

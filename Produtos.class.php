@@ -20,7 +20,7 @@ class Produtos{
     private $peso;
     private $cor;
     
-    function __construct($idProduto, $fabricante, $nome, $marca, $modelo, $idCategoria, $descricao, $unidadeMedida, $largura, $profundidade, $peso, $cor) {
+    function __construct($idProduto, $fabricante, $nome, $marca, $modelo, $idCategoria, $descricao, $unidadeMedida, $largura, $altura, $profundidade, $peso, $cor) {
       $this->setIdProduto($idProduto);
       $this->setFabricante($fabricante);
     $this->setNome($nome);
@@ -33,44 +33,11 @@ class Produtos{
     $this->setAltura($altura);
     $this->setProfundidade($profundidade);
     $this->setPeso($peso);
-    $this->setCor($cor);
+    $this->setCor($cor); 
     
     }
     
-    public function select() {
-        $connection = new DBConnection();
-        $sqlCommand = "SELECT (idProduto,  fabricante,  nome,  marca,modelo ,  idCategoria, descricao, unidadeMedida, largura,  altura,   profundidade,   peso) FROM bdlojinha;";
-        $rSet = $connection->query( $sqlCommand );
-        
-        
-    }
-    
-    public function insert(){
-        $connection = new DBConnection();
-        $sqlCommand = " INSERT INTO bdlojinha (idProduto,  fabricante,  nome,  marca,modelo ,  idCategoria, descricao, unidadeMedida, largura,  altura,   profundidade,   peso) VALUES ('$idProduto',  '$fabricante',  '$nome',  '$marca, '$modelo' ,  '$idCategoria', '$descricao', '$unidadeMedida', '$largura',  '$altura',   '$profundidade',   '$peso') ";
-        
-        $rSet = $connection->query( $sqlCommand );
-        if ( $rSet ){
-            return true;
-        } else {
-            return false;
-        }
-        
-    }
-    
-    
-    public function deletar(){
-        $connection = new DBConnection();
-        
-        $sqlCommand1 = "DELETE FROM `produtos` WHERE `produtos`. `um` = '".$this->getUm()."' ";
-        $rSet = $connection->query( $sqlCommand1 );
-        if ( $rSet ){
-            return true;
-        } else{
-            return false;
-        }
-        
-    }
+   
     
     
     
@@ -199,6 +166,61 @@ class Produtos{
         $this->cor = $cor;
         return $this;
     }
+
+    public function select() {
+        $connection = new DBConnection();
+        $sqlCommand = "SELECT *FROM produtos (idProduto,  fabricante,  nome,  marca,modelo ,  idCategoria, descricao, unidadeMedida, largura,  altura,   profundidade,   peso) FROM bdlojinha;";
+        $rSet = $connection->query( $sqlCommand );
+        
+        
+    }
+    
+    public function insert(){
+        $connection = new DBConnection();
+        $idProdut = $this->getIdProduto();
+        $fabricant = $this->getFabricante();
+        $nom = $this->getNome();
+        $marc = $this->getMarca();
+        $model = $this->getModelo();
+        $idCategor = $this->getIdCategoria();
+        $desc = $this->getDescricao();
+        $unidadeMed = $this->getUnidadeMedida();
+        $larg = $this->getLargura();
+        $alt = $this->getAltura();
+        $profundidad = $this->getProfundidade();
+        $pesoo = $this->getPeso();
+        $coor = $this->getCor();
+        $sqlCommand = " INSERT INTO produtos (idProduto,  fabricante,  nome,  marca, modelo ,  idCategoria, descricao, unidadeMedida,
+         largura,  altura,   profundidade,   peso, cor) VALUES ('$idProdut',  '$fabricant',  '$nom',  '$marc, '$model' ,  '$idCategor', '$desc', '$unidadeMed', '$larg',  '$alt',   '$profundidad',   '$pesoo', $coor) ";
+        
+        $rSet = $connection->query( $sqlCommand );
+        if ( $rSet ){
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+    
+    
+    public function deletar(){
+        $connection = new DBConnection();
+        
+        $sqlCommand1 = "DELETE FROM `produtos` WHERE `produtos`. `um` = '".$this->getUm()."' ";
+        $rSet = $connection->query( $sqlCommand1 );
+        if ( $rSet ){
+            return true;
+        } else{
+            return false;
+        }
+        
+    }
+
+
+
+
+
+
 
 }
 
